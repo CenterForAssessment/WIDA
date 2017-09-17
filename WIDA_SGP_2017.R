@@ -35,4 +35,9 @@ save(WIDA_SGP, file="Data/WIDA_SGP.Rdata")
 ### Save coefficient matrices
 
 WIDA_Cohort_Referenced_Matrices <- WIDA_SGP@SGP$Coefficient_Matrices
+
+for (name.iter in seq_along(WIDA_Cohort_Referenced_Matrices$READING.2017)) {
+	WIDA_Cohort_Referenced_Matrices$READING.2017[[name.iter]]@Time[[1]] <- rep("BASELINE", 2)
+}
+names(WIDA_Cohort_Referenced_Matrices) <- "READING.BASELINE"
 save(WIDA_Cohort_Referenced_Matrices, file="WIDA_Cohort_Referenced_Matrices.Rdata")
