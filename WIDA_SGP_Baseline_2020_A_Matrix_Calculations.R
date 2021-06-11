@@ -32,4 +32,4 @@ WIDA_Baseline_Matrices <- baselineSGP(
 )
 
 ###   Save results
-save(WIDA_Baseline_Matrices, file="Data/WIDA_Baseline_Matrices.Rdata")
+save(WIDA_Baseline_Matrices, file="Data/WIDA_Baseline_Matrices.Rdata", compress="xz")
