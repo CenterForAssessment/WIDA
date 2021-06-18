@@ -18,12 +18,12 @@ load("Data/Base_Files/WIDA_RI_SGP_LONG_Data.Rdata")
 ### Combine data sets
 variables.to.keep <- c("VALID_CASE", "ID", "GRADE", "YEAR", "CONTENT_AREA", "SCALE_SCORE")
 WIDA_Data_LONG <- rbindlist(list(
-                    WIDA_CO_SGP_LONG_Data[,variables.to.keep, with=FALSE][,STATE:="CO"][,ID:=paste(ID, STATE, sep="_")],
-                    WIDA_HI_SGP_LONG_Data[,variables.to.keep, with=FALSE][,STATE:="HI"][,ID:=paste(ID, STATE, sep="_")],
-                    WIDA_IN_SGP_LONG_Data[,variables.to.keep, with=FALSE][,STATE:="IN"][,ID:=paste(ID, STATE, sep="_")],
-                    WIDA_MA_SGP_LONG_Data[,variables.to.keep, with=FALSE][,STATE:="MA"][,ID:=paste(ID, STATE, sep="_")],
-                    WIDA_NH_SGP_LONG_Data[,variables.to.keep, with=FALSE][,STATE:="NH"][,ID:=paste(ID, STATE, sep="_")],
-                    WIDA_RI_SGP_LONG_Data[,variables.to.keep, with=FALSE][,STATE:="RI"][,ID:=paste(ID, STATE, sep="_")]
+                    WIDA_CO_SGP_LONG_Data[,variables.to.keep, with=FALSE][,WIDA_STATE:="CO"][,ID:=paste(ID, WIDA_STATE, sep="_")],
+                    WIDA_HI_SGP_LONG_Data[,variables.to.keep, with=FALSE][,WIDA_STATE:="HI"][,ID:=paste(ID, WIDA_STATE, sep="_")],
+                    WIDA_IN_SGP_LONG_Data[,variables.to.keep, with=FALSE][,WIDA_STATE:="IN"][,ID:=paste(ID, WIDA_STATE, sep="_")],
+                    WIDA_MA_SGP_LONG_Data[,variables.to.keep, with=FALSE][,WIDA_STATE:="MA"][,ID:=paste(ID, WIDA_STATE, sep="_")],
+                    WIDA_NH_SGP_LONG_Data[,variables.to.keep, with=FALSE][,WIDA_STATE:="NH"][,ID:=paste(ID, WIDA_STATE, sep="_")],
+                    WIDA_RI_SGP_LONG_Data[,variables.to.keep, with=FALSE][,WIDA_STATE:="RI"][,ID:=paste(ID, WIDA_STATE, sep="_")]
 ))
 
 setkey(WIDA_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
